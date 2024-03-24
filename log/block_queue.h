@@ -141,7 +141,7 @@ public:
 
         m_size++;
 
-        m_cond.broadcast();//这里似乎不必唤醒所有线程，用signal唤醒一个线程即可
+        m_cond.broadcast();//这里似乎不必唤醒所有线程，用signal唤醒一个线程即可,总共就一个线程，所以用哪个都可以
         m_mutex.unlock();
         return true;
     }
