@@ -116,8 +116,8 @@ int main(int argc, char *argv[]) {
     int ret = 0;
     int flag = 1;
     setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &flag, sizeof(flag));
-    ret = bind(listenfd, (struct sockaddr *) &address, sizeof(address));
-    ret = listen(listenfd, 5);
+    ret = bind(listenfd, (struct sockaddr *) &address, sizeof(address));//绑定IP 地址和端口
+    ret = listen(listenfd, 5);//监听
 
     //创建内核事件表
     int epollfd = epoll_create(100);

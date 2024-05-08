@@ -150,7 +150,7 @@ public:
     {
 
         m_mutex.lock();
-        //多个消费者的时候，这里要是用while而不是if
+        //多个消费者的时候，这里要是用while而不是if,因为可能被唤醒后发现又没有了
         while (m_size <= 0)
         {
             //当重新抢到互斥锁，pthread_cond_wait返回为0

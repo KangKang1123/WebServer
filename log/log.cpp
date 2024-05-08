@@ -30,7 +30,7 @@ bool Log::init(const char *file_name, int log_buf_size, int split_lines, int max
         //创建并设置阻塞队列长度
         m_log_queue = new block_queue<string>(max_queue_size);
         pthread_t tid;
-        //flush_log_thread为回调函数,这里表示创建线程异步写日志,一个线程就够吗？
+        //flush_log_thread为回调函数,这里表示创建线程异步写日志,总共一个线程
         pthread_create(&tid, NULL, flush_log_thread, NULL);
     }
     //输出内容的长度
